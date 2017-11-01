@@ -1,13 +1,12 @@
 function countLetters(string) {
-  var noSpaces = string.toLowerCase().split(" ").join("").split("");
   var letterCount = {};
-  for (var letter of noSpaces) {
-    if (letter in letterCount) {
-      letterCount[letter]++;
+  for (var letter of string) {
+    if (letter === " ") continue;
+    if (!(letter in letterCount)) {
+      letterCount[letter] = 0;
     }
-    else {
-      letterCount[letter] = 1;
-    }
+    letterCount[letter]++;
+
   }
 
   return letterCount;
@@ -15,3 +14,4 @@ function countLetters(string) {
 
 console.log(countLetters("hello"));
 console.log(countLetters("aabbcc"));
+console.log(countLetters("lighthouse in the house and go to bed"));
